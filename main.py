@@ -6,11 +6,9 @@ setup_django()
 
 
 def main() -> None:
-    # Carrega os dados do arquivo players.json
     with open("players.json", encoding="utf-8") as file:
         players_data = json.load(file)
 
-    # Itera sobre os jogadores (nickname como chave)
     for nickname, player in players_data.items():
         race_data = player["race"]
         race_obj, _ = Race.objects.get_or_create(
